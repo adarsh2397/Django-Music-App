@@ -1,5 +1,22 @@
-<ul>
-    {% for album in all_albums %}
-        <li><a href="/music/{{ album.id }}/">{{ album.album_title }}</a></li>
-    {% endfor %}
-</ul>
+{% extends 'music/base.html' %}
+
+{% load staticfiles %}
+{% block body %}
+    <div id="list-view">
+    <ul>
+            {% for album in all_albums %}
+                <li>
+                    <div class="col-sm-4">
+                        <div class="thumbnail">
+                            <img src="{% static 'music/img/taylor.jpg' %}">
+                            <h2>
+                                <a href="{% url 'music:detail' album.id %}">{{ album.album_title }}</a>
+                            </h2>
+                            <h4>{{ album.artist }}</h4>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+    </ul>
+    </div>
+{% endblock %}

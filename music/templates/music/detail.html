@@ -1,0 +1,33 @@
+{% extends 'music/base.html' %}
+
+{% block title %}
+    Album Details
+{% endblock %}
+
+{% block body %}
+    <div class="col-sm-3">
+        <div class="thumbnail">
+            <img src="{{ album.album_logo }}" height="240" width="240">
+            <h1>{{ album.album_title }} <small>{{ album.genre }}</small></h1>
+            <h3>{{ album.artist }}</h3>
+        </div>
+    </div>
+    <div class="col-sm-9">
+        <div class="panel panel-default">
+            <button class="btn btn-info">Add Song</button>
+            {% if empty == Talse %}
+                No Songs to Display
+            {% endif %}
+            <table class="table">
+                <tr>
+                    <th>Title</th>
+                    <th>Audio File</th>
+                    <th>Favorite</th>
+                    <th>Actions</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+{% endblock %}
